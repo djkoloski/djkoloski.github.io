@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Software Engineer, Game Designer, Web Developer">
+    <meta name="description" content="I&#39;m a software engineer!">
     <meta name="author" content="David Koloski">
 
     <!-- favicon -->
@@ -61,179 +61,198 @@
 </div>
 <div class="section content">
     <h2 id="david-koloski">David Koloski</h2>
-<p>Software engineer, game designer, and web developer.</p>
+<p>I'm a software engineer! I usually specialize in systems programming.</p>
 <h2 id="experience">Experience</h2>
-<h3 id="open-source-rust">Open-source Rust</h3>
+<h3 id="open-source-development">Open-source development</h3>
+<p>I do a lot of open-source work. Some of the highlights:</p>
 <ul>
-<li>November 2020 - Present</li>
+<li>I wrote <a rel="external" href="https://github.com/rkyv/rkyv">rkyv</a>, a zero-copy deserialization framework for Rust. You can read
+more about it in the <a rel="external" href="https://rkyv.org">rkyv book</a>, and see the <a rel="external" href="https://github.com/djkoloski/rust_serialization_benchmark">Rust serialization benchmark</a> I
+maintain for serialization in Rust. I also gave a talk about <a rel="external" href="https://www.youtube.com/watch?v=ON4z2LbTD-4">the many
+mistakes I made while developing rkyv</a> at RustConf 2024. rkyv led
+me to develop several other libraries as well:
+<ul>
+<li><a rel="external" href="https://github.com/rkyv/bytecheck">bytecheck</a>, a runtime type validation framework</li>
+<li><a rel="external" href="https://github.com/djkoloski/munge">munge</a>, a library that adds support for custom destructuring</li>
+<li>and <a rel="external" href="https://github.com/rkyv/rancor">rancor</a>, a monomorphizing error handling framework.</li>
 </ul>
-<p>I do a lot of open-source work on and in Rust. Some of the highlights:</p>
+</li>
+<li>I contribute to the <a rel="external" href="https://github.com/rust-lang/rust/pulls?q=is%3Apr+author%3Adjkoloski">Rust language</a> compiler and standard library. I've
+contributed a lot of stuff, but had the most fun tracking down
+<a rel="external" href="https://github.com/rust-lang/rust/issues/115681">two</a> <a rel="external" href="https://github.com/rust-lang/rust/issues/115385">miscompiles</a> caused by the update to LLVM
+17.</li>
+<li>I do lots of smaller projects too, including:
 <ul>
-<li><a href="https://github.com/rkyv/rkyv">rkyv</a> is a zero-copy deserialization framework for Rust. It was my first
-major project in Rust and continues to be widely used in the Rust community.</li>
-<li><a href="https://github.com/rkyv/bytecheck">bytecheck</a> is a runtime struct validation framework built for use with rkyv.
-It's general-purpose but is primarily used by rkyv to perform type validation
-on arbitrary byte buffers.</li>
-<li>I'm currently working on <a href="https://github.com/rkyv/rel">rel</a>, an object system for Rust based on relative
-pointers. It has a lot of promise but still has a lot of work yet to be done.</li>
-<li>I maintain a suite of <a href="https://github.com/djkoloski/rust_serialization_benchmark">Rust serialization benchmarks</a> aimed to provide
-high-quality unbiased data on the relative performance of various
-serialization frameworks.</li>
-<li>I'm also very happy with my Rust destructuring library <a href="https://github.com/djkoloski/munge">munge</a>.</li>
-<li>I also occasionally help improve and maintain <a href="https://github.com/google/zerocopy">zerocopy</a>.</li>
+<li>A <a rel="external" href="https://github.com/djkoloski/rox">compiler and virtual machine</a> for the lox programming language,
+following Bob Nystrom's <a rel="external" href="https://craftinginterpreters.com">Crafting Interpreters</a></li>
+<li>An <a rel="external" href="https://github.com/djkoloski/ddb">x86_64 debugger</a>, following Sy Brand's <a rel="external" href="https://nostarch.com/building-a-debugger">Building a Debugger</a></li>
+<li>An <a rel="external" href="https://github.com/djkoloski/eink_frame">e-ink weather station</a> for Raspberry Pi</li>
 </ul>
-<h3 id="rust-on-fuchsia">Rust on Fuchsia</h3>
-<ul>
-<li>October 2021 - Present</li>
-<li>Google, New York NY</li>
+</li>
 </ul>
-<p>I'm currently working at Google on the Rust on Fuchsia team.</p>
+<p>You can view more of my open-source projects and contributions on <a rel="external" href="https://github.com/djkoloski">GitHub</a>.</p>
+<h3 id="google">Google</h3>
 <ul>
-<li>I help maintain our Rust toolchain; diagnosing, reporting, and fixing issues
+<li><em>Senior Software Engineer</em></li>
+<li><em>October 2021 - Present</em></li>
+<li><em>New York City, NY and Remote</em></li>
+</ul>
+<p>I'm currently working at Google on <a rel="external" href="https://fuchsia.dev">Fuchsia</a>. Right now, I'm on the Fuchsia IPC
+team:</p>
+<ul>
+<li>I work on Fuchsia's IPC language: <a rel="external" href="https://fuchsia.dev/fuchsia-src/development/languages/fidl">FIDL</a>. I improve and maintain the compiler,
+fidlc, as well as the C++, Go, and Rust language bindings.</li>
+<li>I wrote <a rel="external" href="https://cs.opensource.google/fuchsia/fuchsia/+/main:tools/fidl/fidlgen_rust_next/;l=1?q=fidlgen_rust_next&amp;sq=&amp;ss=fuchsia">new Rust bindings</a> for FIDL that added support for zero-copy
+deserialization, multiple transport backends, and async backpressure while
+also improving encoding and decoding performance.</li>
+</ul>
+<p>I also contribute outside of my core work:</p>
+<ul>
+<li>I help maintain our third-party Rust code on Fuchsia. This includes
+maintaining our tooling, enforcing licensing compliance, and reviewing updates
+for malicious and unsound code.</li>
+<li>I set up and ran our unsafe Rust review process on Fuchsia. This was the first
+unsafe Rust review process at Google! It directly led to Google's other review
+policies, and I got to work with other leads in Core, Android, Chromium, and
+more.</li>
+<li>I helped formalize Google's crate auditing standards and made them available
+for other internal and external projects to use. You can find them on
+[GitHub][rust crate audits]! I wrote more about what we did and why on
+[Google's open-source blog].</li>
+</ul>
+<p>Previously, I worked on Fuchsia's Rust toolchain team:</p>
+<ul>
+<li>I helped maintain our Rust toolchain; diagnosing, reporting, and fixing issues
 we find while testing the latest nightlies on our codebase.</li>
-<li>A major project I worked on was building Rust's
-<a href="https://github.com/rust-lang/rust/blob/master/src/ci/docker/scripts/fuchsia-test-runner.py">compiler test suite runner for Fuchsia</a>. The runner is a python script that
-starts, configures, and runs test binaries on a Fuchsia emulator.</li>
-<li>Along with the test suite runner, I also worked on fixing and improving Rust's
-standard library support for Fuchsia, filling feature gaps, documenting
-platform differences, and <a href="https://doc.rust-lang.org/nightly/rustc/platform-support/fuchsia.html">writing documentation</a> on how to run Rust on
-Fuchsia emulators. All of this culminated in bringing Fuchsia up to Rust's
-standards for a Tier 2 platform (we were previously grandfathered in, and
-could have been demoted to Tier 3).</li>
-<li>I also improved and formalized our unsafe code review processes. We review a
-lot of unsafe code, and make a concerted effort to prevent undefined behavior
-from entering our build via third-party sources. I lead a group of unsafe code
-reviewers in prioritizing, reviewing, and submitting patches upstream for
-third-party crates that we use on Fuchsia.</li>
-<li>Alongside unsafe code review, I'm currently working to formalize our crate
-auditing results and make them available for other internal and external
-projects to use. These secure our supply chain while reducing the amount of
-work we have to do individually and improving our auditing quality.</li>
-<li>I'm also currently helping to write and open-source Google's
-<a href="https://github.com/google/learn_unsafe_rust">unsafe Rust onboarding materials</a>, which are aimed at bringing Rust
-programmers up to a consistent level of expertise for reviewing unsafe code.</li>
+<li>I built the Rust compiler's <a rel="external" href="https://github.com/rust-lang/rust/blob/main/src/ci/docker/scripts/fuchsia-test-runner.py">test suite runner for Fuchsia</a>. It's a python
+program that manages initializing, configuring, running, and reporting the
+outputs of test binaries in a Fuchsia emulator. It's now part of the Rust
+compiler's CI infrastructure.</li>
+<li>I fixed and improved Rust's standard library support for Fuchsia. Along with
+filling feature gaps and standardizing platform differences, I also documented
+<a rel="external" href="https://doc.rust-lang.org/nightly/rustc/platform-support/fuchsia.html">how to run Rust on Fuchsia emulators</a>. All of this culminated in bringing
+Fuchsia up to Rust's standards for a Tier 2 platform.</li>
 </ul>
-<h3 id="unreleased-project-robot-entertainment">Unreleased Project (Robot Entertainment)</h3>
+<h3 id="robot-entertainment">Robot Entertainment</h3>
 <ul>
-<li>August 2020 - August 2021</li>
-<li>Robot Entertainment, Dallas TX</li>
+<li><em>Programmer</em></li>
+<li><em>March 2019 - August 2021</em></li>
+<li><em>Dallas, TX and Remote</em></li>
 </ul>
-<p>I worked at Robot Entertainment on a canceled project.
-I did most of my work on building a realtime, scalable dungeon generation
-system. The PGC algorithm was initially written in Rust, then C++. Both versions
-were integrated into UE4 so that artists and designers were able to interact
-with the system through the editor UI.</p>
-<h3 id="orcs-must-die-3">Orcs Must Die! 3</h3>
+<p>I worked at Robot Entertainment as a programmer. While there, I worked on
+several projects:</p>
+<h4 id="canceled-project">Canceled Project</h4>
 <ul>
-<li>December 2019 - August 2020</li>
-<li>Robot Entertainment, Dallas TX</li>
+<li><em>August 2020 - August 2021</em></li>
 </ul>
-<p>I worked on Orcs Must Die! 3 with a team of around six other programmers.
-Transitioning onto the team, I worked primarily on UI.
-As the project progressed and we worked more closely with Stadia's hardware, I took on the graphics engineering work needed to get UE4 up to par with Google's technical requirements.
-Along with the graphics engineering work, I also led the charge on a number of nasty bugs that came up along the way.</p>
-<h3 id="readyset-heroes">ReadySet Heroes</h3>
+<p>I built a realtime, scalable dungeon generation system. The PGC algorithm was
+initially written in Rust, then C++. Both versions were integrated into UE4 so
+that artists and designers were able to interact with the system through the
+editor UI.</p>
+<h4 id="orcs-must-die-3">Orcs Must Die! 3</h4>
 <ul>
-<li>March 2019 - December 2019</li>
-<li>Robot Entertainment, Dallas TX</li>
+<li><em>December 2019 - August 2020</em></li>
 </ul>
-<p>I worked on ReadySet Heroes and a DLC update that was released a few months after launch.
-Along with working on a wide variety of tasks over the life of the project, I owned the UI and graphics/optimization.
-This was my first experience as part of the core team on an Unreal project, and I learned the engine architecture and workflows.</p>
-<h3 id="unreleased-project-vicarious-visions">Unreleased Project (Vicarious Visions)</h3>
+<p>I worked on Orcs Must Die! 3 with a team of around six other programmers.</p>
+<p>Transitioning onto the team, I worked primarily on UI. As the project progressed
+and we worked more closely with Stadia's hardware, I took on the graphics
+engineering work needed to get UE4 up to par with Google's technical
+requirements. Along with the graphics engineering work, I also led the charge on
+a number of nasty bugs that came up along the way.</p>
+<h4 id="readyset-heroes">ReadySet Heroes</h4>
 <ul>
-<li>November 2018 - March 2019</li>
-<li>Vicarious Visions, Albany NY</li>
+<li><em>March 2019 - December 2019</em></li>
 </ul>
-<p>I worked on an unreleased project at Vicarious Visions, with a focus on graphics engineering for mobile. Unfortunately I'm not sure what came of it.</p>
-<h3 id="spyro-reignited-trilogy">Spyro Reignited Trilogy</h3>
+<p>I worked on ReadySet Heroes and a DLC update that was released a few months
+after launch.</p>
+<p>Along with working on a wide variety of tasks over the life of the
+project, I owned the UI, graphics programming, and optimization. This was my
+first experience as part of the core team on an Unreal project, and I learned
+the engine architecture and workflows.</p>
+<h3 id="vicarious-visions">Vicarious Visions</h3>
 <ul>
-<li>August 2018 - October 2018</li>
-<li>Vicarious Visions, Albany NY</li>
+<li><em>Junior Software Engineer</em></li>
+<li><em>March 2015 - March 2019</em></li>
+<li><em>Albany, NY</em></li>
 </ul>
-<p>I helped Toys For Bob and Sanzaru Games finish the Reignited Trilogy during its final stretch. I was primarily tasked with implementing and maintaining a Spyro 3 minigame, and also helped out more generally fixing bugs and implementing features. I gained more experience using Unreal Engine 4 in a professional setting and got the opportunity to help close another project.</p>
-<h3 id="angelo-ventresca-associates">Angelo Ventresca Associates</h3>
+<h4 id="unreleased-project">Unreleased Project</h4>
 <ul>
-<li>August 2017 - May 2018</li>
-<li>Angelo Ventresca Associates, Montrose PA</li>
+<li><em>November 2018 - March 2019</em></li>
 </ul>
-<p>I built a new website for Angelo Ventresca Associates from the ground up. The client wanted to move to a more modern design with a focus on ease of navigation and mobile compatibility. I worked closely with them to design the site, write the content, deploy the finished product, and update their index in relevant search engines.</p>
-<h3 id="destiny-2">Destiny 2</h3>
+<p>I worked on an unreleased project at Vicarious Visions, with a focus on graphics
+engineering for mobile.</p>
+<h4 id="spyro-reignited-trilogy">Spyro Reignited Trilogy</h4>
 <ul>
-<li>July 2017 - August 2018, October 2018 - November 2018</li>
-<li>Vicarious Visions, Albany NY</li>
+<li><em>August 2018 - October 2018</em></li>
 </ul>
-<p>I worked on two main projects in the Destiny franchise. The first project managed integrating the Blizzard Launcher into Destiny 2 for the PC release. I worked with protobuf and helped write a lot of the networking code related to rich presence. Later, I worked on content creation tools in C# that integrated tightly into Autodesk Maya and 3DS Max. On this project, I was the platform owner for Maya and helped steer the development philosophy of the tool toward a strong MVVM architecture.</p>
-<h3 id="crash-bandicoot-n-sane-trilogy">Crash Bandicoot N. Sane Trilogy</h3>
+<p>I helped Toys For Bob and Sanzaru Games finish the Reignited Trilogy during its
+final stretch. I was primarily tasked with implementing and maintaining a Spyro
+3 minigame, and also helped out more generally fixing bugs and implementing
+features. I gained more experience using Unreal Engine 4 in a professional
+setting and got the opportunity to help close another project.</p>
+<h4 id="destiny-2">Destiny 2</h4>
 <ul>
-<li>March 2016 - June 2017</li>
-<li>Vicarious Visions, Albany NY</li>
+<li><em>July 2017 - August 2018, October 2018 - November 2018</em></li>
 </ul>
-<p>I was one of four engineers to work on the N. Sane Trilogy from start to finish, and one of three gameplay engineers on the project. I gained experience working with Vicarious Visions's proprietary Alchemy game engine and worked in many diverse areas including audio, visual scripting, physics, input, and control feel. I gained expertise with the audio engine, and implemented support for multiple PS4 trophy packs as well as all trophies in the game.</p>
-<h3 id="guitar-hero-live">Guitar Hero Live</h3>
+<p>I worked on two main projects in the Destiny franchise. The first project
+managed integrating the Blizzard Launcher into Destiny 2 for the PC release. I
+worked with protobuf and helped write a lot of the networking code related to
+rich presence. Later, I worked on content creation tools in C# that integrated
+tightly into Autodesk Maya and 3DS Max. On this project, I was the platform
+owner for Maya and helped steer the development philosophy of the tool toward a
+strong MVVM architecture.</p>
+<h4 id="crash-bandicoot-n-sane-trilogy">Crash Bandicoot N. Sane Trilogy</h4>
 <ul>
-<li>March 2015 - December 2015</li>
-<li>Vicarious Visions, Albany NY</li>
+<li><em>March 2016 - June 2017</em></li>
 </ul>
-<p>I worked in collaboration with FreeStyleGames to bring iOS and apple device support to Guitar Hero Live. This was my first foray into professional game development, and I learned a lot about the basics of being a part of a team and engineering practices. I worked with a wide variety of apple devices and learned how to properly develop for them.</p>
+<p>I was one of four engineers to work on the N. Sane Trilogy from start to finish,
+and one of three gameplay engineers on the project. I gained experience working
+with Vicarious Visions's proprietary Alchemy game engine and worked in many
+diverse areas including audio, visual scripting, physics, input, and control
+feel. I gained specific expertise with the audio engine, and implemented support
+for PS4 trophy packs while working on the trophy system in general.</p>
+<h4 id="guitar-hero-live">Guitar Hero Live</h4>
+<ul>
+<li><em>March 2015 - December 2015</em></li>
+</ul>
+<p>I worked in collaboration with FreeStyleGames to bring iOS and Apple device
+support to Guitar Hero Live. This was my first foray into professional game
+development, and I learned a lot about the basics of being a part of a team and
+engineering practices. I worked with a wide variety of Apple devices and learned
+how to use their development tooling.</p>
+<h2 id="education">Education</h2>
 <h3 id="rensselaer-polytechnic-institute">Rensselaer Polytechnic Institute</h3>
 <ul>
-<li>August 2013 - December 2016</li>
-<li>Rensselaer Polytechnic Institute, Troy NY</li>
+<li><em>Undergraduate</em></li>
+<li><em>August 2013 - December 2016</em></li>
+<li><em>Troy, NY</em></li>
 </ul>
-<p>I atttended RPI for three and a half years, earning Bachelor's degrees in Computer Science and Game and Simulation Arts and Sciences. I graduated Summa Cum Laude with a 3.99 GPA. During my time at RPI, I worked with the Rensselaer Center for Open Source (RCOS) and developed open source software over the summer of 2014.</p>
-<h2 id="hard-skills">Hard Skills</h2>
-<h3 id="languages">Languages</h3>
+<p>I atttended RPI for three and a half years, earning Bachelor's degrees in
+Computer Science and Game and Simulation Arts and Sciences. I graduated Summa
+Cum Laude with a 3.99 GPA. During my time at RPI, I worked with the Rensselaer
+Center for Open Source (RCOS) and developed open source software over the summer
+of 2014.</p>
+<h2 id="skills">Skills</h2>
+<p>In order of most to least experience.</p>
 <ul>
-<li>Rust</li>
-<li>C/C++</li>
-<li>C# + .NET</li>
-<li>JavaScript</li>
-<li>Python</li>
-<li>HTML/CSS</li>
-</ul>
-<h3 id="game-engines">Game Engines</h3>
-<ul>
-<li>Unity</li>
-<li>Unreal Engine 4</li>
-</ul>
-<h3 id="graphics-apis">Graphics APIs</h3>
-<ul>
-<li>Vulkan</li>
-<li>OpenGL | ES</li>
-</ul>
-<h3 id="web-development-frameworks">Web Development Frameworks</h3>
-<ul>
-<li>React</li>
-<li>Vue</li>
-<li>Bulma</li>
-<li>Webpack</li>
-<li>Gulp</li>
-</ul>
-<h3 id="version-control">Version Control</h3>
-<ul>
-<li>git</li>
-<li>Perforce</li>
-</ul>
-<h2 id="soft-skills">Soft Skills</h2>
-<ul>
-<li>Strong collaborator with designers and other developers</li>
-<li>Dedicated team player and eager to help others</li>
-<li>Self-directing, always seeking out new opportunities</li>
-<li>Leadership experience managing individuals and teams</li>
+<li>Programming Languages: Rust, C/C++, Python, C#, web (JS/TS, HTML, CSS)</li>
+<li>Game Engines: Unreal Engine, Unity, Godot, Bevy</li>
+<li>Graphics APIs: Vulkan, OpenGL</li>
+<li>Web Development: Vue</li>
+<li>VCS: git, Perforce</li>
 </ul>
 <h2 id="contact">Contact</h2>
 <ul>
-<li><a href="mailto:david@kolo.ski">david@kolo.ski</a></li>
-<li><a href="http://github.com/djkoloski">github.com/djkoloski</a></li>
-<li><a href="http://hachyderm.io/@djkoloski">hachyderm.io/@djkoloski</a></li>
-<li><a href="http://linkedin.com/in/dkoloski">linkedin.com/in/dkoloski</a></li>
+<li>Email: <a href="mailto:david@kolo.ski">david@kolo.ski</a></li>
+<li>GitHub: <a rel="external" href="http://github.com/djkoloski">djkoloski</a></li>
+<li>Bluesky: <a rel="external" href="http://bsky.app/profile/david.kolo.ski">david.kolo.ski</a></li>
+<li>LinkedIn: <a rel="external" href="http://linkedin.com/in/dkoloski">dkoloski</a></li>
 </ul>
 
 </div>
 
     <div class="section footer">
-        &copy; 2024 David Koloski
+        &copy; 2026 David Koloski
         <a href="/atom.xml"><img width="16" height="16" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 455 455'%3E%3Cpath d='M0 0v455h455V0H0zm141.435 372.387c-7.656 7.59-18.047 12.219-29.614 12.219-11.555 0-21.945-4.646-29.549-12.219C74.681 364.801 70 354.462 70 342.961s4.681-21.875 12.272-29.483c7.621-7.569 17.994-12.237 29.549-12.237 11.567 0 21.958 4.668 29.579 12.254 7.621 7.621 12.272 17.964 12.307 29.466-.035 11.501-4.686 21.822-12.272 29.426zM217.468 385s0-.101-.017-.101c-.066-39.41-15.431-76.597-43.221-104.352-27.786-27.838-64.925-43.256-104.195-43.291v-60.139c57.299.035 109.169 23.327 146.833 61.014 37.651 37.682 60.944 89.565 60.996 146.869h-60.396zm107.24 0c-.105-140.495-114.196-254.774-254.572-254.879V70c86.817.035 165.432 35.359 222.495 92.422C349.659 219.485 384.965 298.165 385 385h-60.292z' fill-rule='evenodd' fill='%23fff'/%3E%3C/svg%3E"></a>
     </div>
 </body>

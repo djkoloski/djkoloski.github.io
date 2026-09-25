@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Software Engineer, Game Designer, Web Developer">
+    <meta name="description" content="I&#39;m a software engineer!">
     <meta name="author" content="David Koloski">
 
     <!-- favicon -->
@@ -62,7 +62,7 @@
         And I have the benchmarks to prove it
     </div>
     <div class="subtitle">
-        Mar 11, 2021 &ndash; 10 min read
+        Mar 11, 2021 &ndash; 9 min read
     </div>
 </div>
 <div class="section taxonomies">
@@ -85,7 +85,7 @@
     
 </div>
 <div class="section content">
-    <p>I've been working on <a href="https://github.com/djkoloski/rkyv">rkyv</a>, a zero-copy deserialization library, since November of 2020. rkyv is similar to <a href="https://capnproto.org/">Cap'n Proto</a> and <a href="https://google.github.io/flatbuffers">FlatBuffers</a>, but has a handful of different design choices that make it stand out:</p>
+    <p>I've been working on <a rel="external" href="https://github.com/djkoloski/rkyv">rkyv</a>, a zero-copy deserialization library, since November of 2020. rkyv is similar to <a rel="external" href="https://capnproto.org/">Cap'n Proto</a> and <a rel="external" href="https://google.github.io/flatbuffers">FlatBuffers</a>, but has a handful of different design choices that make it stand out:</p>
 <ul>
 <li>No type restrictions: you can serialize anything with rkyv</li>
 <li>No external schemas: you can use the library with just <code>#[derive]</code>s</li>
@@ -95,7 +95,7 @@
 </ul>
 <p>But just having design goals isn't good enough, you need results to back them up. With that in mind, I can't disclaim enough that I am the creator and maintainer of rkyv. However, the last thing I want is to be biased, so I made some benchmarks to hopefully convince you on their own merits.</p>
 <h2 id="benchmarks">Benchmarks</h2>
-<p>There are a <a href="https://github.com/erickt/rust-serialization-benchmarks">couple</a> <a href="https://blog.logrocket.com/rust-serialization-whats-ready-for-production-today/">different</a> <a href="https://github.com/only-cliches/noproto#benchmarks">benchmarks</a> already available, but in general they fail in a couple different ways:</p>
+<p>There are a <a rel="external" href="https://github.com/erickt/rust-serialization-benchmarks">couple</a> <a rel="external" href="https://blog.logrocket.com/rust-serialization-whats-ready-for-production-today/">different</a> <a rel="external" href="https://github.com/only-cliches/noproto#benchmarks">benchmarks</a> already available, but in general they fail in a couple different ways:</p>
 <h3 id="they-test-with-too-little-data">They test with too little data</h3>
 <p>This leads to highly variable results and can make it difficult to see whether one library is really faster than another</p>
 <h3 id="they-test-only-with-simple-data">They test only with simple data</h3>
@@ -104,7 +104,7 @@
 <p>For most serialization formats, all you can do is serialize and deserialize data. But zero-copy deserialization libraries can access and traverse data without deserializing it first. Knowing how these operations compare with each other is essential to evaluating their relative performance.</p>
 <h2 id="rust-serialization-benchmark"><code>rust_serialization_benchmark</code></h2>
 <p>With these shortcomings in mind, I set off to make my own benchmarks. The goal was to be thorough and complete, and I think I did a pretty good job.</p>
-<p>You can run the benchmarks yourself or look over the raw data <a href="https://github.com/djkoloski/rust_serialization_benchmark">from the github repo</a>. I'll summarize the results.</p>
+<p>You can run the benchmarks yourself or look over the raw data <a rel="external" href="https://github.com/djkoloski/rust_serialization_benchmark">from the github repo</a>. I'll summarize the results.</p>
 <h3 id="rules">Rules</h3>
 <p>Each library got tested on three different data sets:</p>
 <ul>
@@ -112,7 +112,7 @@
 <li><code>mesh</code>: a single mesh composed of triangles, each of which has three vertices and a normal</li>
 <li><code>minecraft_savedata</code>: a highly-structured data set modeled after Minecraft player savedata</li>
 </ul>
-<p>Each data set is randomly generated from an RNG seeded with the <a href="https://en.wikipedia.org/wiki/Nothing-up-my-sleeve_number">first 20 digits of pi</a>, so the data tested is identical for every run. For each data set, a library was measured for the following:</p>
+<p>Each data set is randomly generated from an RNG seeded with the <a rel="external" href="https://en.wikipedia.org/wiki/Nothing-up-my-sleeve_number">first 20 digits of pi</a>, so the data tested is identical for every run. For each data set, a library was measured for the following:</p>
 <ul>
 <li><strong>Serialize</strong>: how long it took to serialize the data</li>
 <li><strong>Deserialize</strong>: how long it took to deserialize the data</li>
@@ -134,7 +134,7 @@
 <li>Abomonation's <code>decode</code> qualified as access not deserialize because it yields an immutable reference instead of a mutable object. In order to deserialize this object, a simple <code>Clone</code> would suffice but I'm not here to write and benchmark my own deserialization code.</li>
 </ol>
 <h2 id="results">Results</h2>
-<p>These results are directly from the <a href="https://github.com/djkoloski/rust_serialization_benchmark">benchmark repo</a>.</p>
+<p>These results are directly from the <a rel="external" href="https://github.com/djkoloski/rust_serialization_benchmark">benchmark repo</a>.</p>
 <h3 id="log"><code>log</code></h3>
 <p>This data set is composed of HTTP request logs that are small and contain many strings.</p>
 <p><strong>Raw data:</strong></p>
@@ -241,10 +241,10 @@ vertices and a normal vector.</p>
 <h3 id="rkyv">rkyv</h3>
 <p>I went into these benchmarks not knowing how rkyv would perform relative to its peers, but confident that it would make a good showing. It ended up doing much better than I expected. It won nearly every performance category, and was highly competitive with the winner when it didn't. It also did so without compromising on size, where it was also highly competitive. Finally it showed exceptional scalability, peforming equally well on all different kinds of data where its zero-copy competitors all hard shortcomings on one or more of the data sets. Unlike abomonation, it's also a safe, highly-portable format that doesn't need mutable backing and has more feature support than other competitors.</p>
 <h2 id="conclusion">Conclusion</h2>
-<p>I welcome and encourage anyone to run <a href="https://github.com/djkoloski/rust_serialization_benchmark">the benchmarks</a> for themselves and open pull requests to improve or clean up whatever they want. I am confident in the validity of these results, and will happily update the tables as changes are made. I will update my analyses if there are any major changes.</p>
-<p>My hope is that this article not only convinced you that <a href="https://github.com/djkoloski/rkyv">rkyv</a> is one of the best-performing serializers available, but that it also helped you understand the relationships between the different serialization solutions available in rust today.</p>
-<p><em>If you're interested in rkyv, I encourage you to contribute to the <a href="https://github.com/djkoloski/rkyv/issues/67">request for feedback</a> for planning its future</em></p>
-<p><em>Thanks to <a href="https://blog.burntsushi.net/ripgrep/">burntsushi</a> for the article title inspiration</em></p>
+<p>I welcome and encourage anyone to run <a rel="external" href="https://github.com/djkoloski/rust_serialization_benchmark">the benchmarks</a> for themselves and open pull requests to improve or clean up whatever they want. I am confident in the validity of these results, and will happily update the tables as changes are made. I will update my analyses if there are any major changes.</p>
+<p>My hope is that this article not only convinced you that <a rel="external" href="https://github.com/djkoloski/rkyv">rkyv</a> is one of the best-performing serializers available, but that it also helped you understand the relationships between the different serialization solutions available in rust today.</p>
+<p><em>If you're interested in rkyv, I encourage you to contribute to the <a rel="external" href="https://github.com/djkoloski/rkyv/issues/67">request for feedback</a> for planning its future</em></p>
+<p><em>Thanks to <a rel="external" href="https://blog.burntsushi.net/ripgrep/">burntsushi</a> for the article title inspiration</em></p>
 
 </div>
 <div class="section navigation">
@@ -253,7 +253,7 @@ vertices and a normal vector.</p>
 </div>
 
     <div class="section footer">
-        &copy; 2024 David Koloski
+        &copy; 2026 David Koloski
         <a href="/atom.xml"><img width="16" height="16" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 455 455'%3E%3Cpath d='M0 0v455h455V0H0zm141.435 372.387c-7.656 7.59-18.047 12.219-29.614 12.219-11.555 0-21.945-4.646-29.549-12.219C74.681 364.801 70 354.462 70 342.961s4.681-21.875 12.272-29.483c7.621-7.569 17.994-12.237 29.549-12.237 11.567 0 21.958 4.668 29.579 12.254 7.621 7.621 12.272 17.964 12.307 29.466-.035 11.501-4.686 21.822-12.272 29.426zM217.468 385s0-.101-.017-.101c-.066-39.41-15.431-76.597-43.221-104.352-27.786-27.838-64.925-43.256-104.195-43.291v-60.139c57.299.035 109.169 23.327 146.833 61.014 37.651 37.682 60.944 89.565 60.996 146.869h-60.396zm107.24 0c-.105-140.495-114.196-254.774-254.572-254.879V70c86.817.035 165.432 35.359 222.495 92.422C349.659 219.485 384.965 298.165 385 385h-60.292z' fill-rule='evenodd' fill='%23fff'/%3E%3C/svg%3E"></a>
     </div>
 </body>
